@@ -33,8 +33,15 @@ public_users.get('/author/:author',function (req, res) {
 
 // Get all books based on title
 public_users.get('/title/:title',function (req, res) {
-  //Write your code here
-  return res.send()
+  const title = req.params.title;
+  for (let isbn in books) {
+    if (books[isbn]["title"] === title) {
+      return res.send(books[isbn]);
+    }
+    else {
+      return res.send("No book found with the title "+ title);
+    }
+  }
 });
 
 //  Get book review
