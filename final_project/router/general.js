@@ -38,9 +38,7 @@ public_users.get('/title/:title',function (req, res) {
     if (books[isbn]["title"] === title) {
       return res.send(books[isbn]);
     }
-    else {
-      return res.send("No book found with the title "+ title);
-    }
+   return res.send("No book found with the title "+ title);
   }
 });
 
