@@ -20,35 +20,60 @@ public_users.post("/register", (req,res) => {
 });
 
 // Get the book list available in the shop
-public_users.get('/',function (req, res) {
-  return res.send(JSON.stringify(books,null,4));
-});
-
+public_users.get("/", async function (req, res) {
+  try{
+    const data = await Promise.resolve(books);
+    return res.status(200).json(data)
+  } catch (error){
+    return res.status(500).json({message: "Error retrieving book list", error: error.message});
+  }
+  }
+);
 // Get book details based on ISBN
-public_users.get('/isbn/:isbn',function (req, res) {
+public_users.get('/isbn/:isbn', async function (req, res) {
   const isbn = req.params.isbn;
-  return res.send(books[isbn]);
+  try{
+    const data = await Promise.resolve(books[isbn]);
+    return res.status(200).json(data)
+  } catch (error){
+    return res.status(500).json({message: "Error retrieving book details", error: error.message});
+  }
 });
 
 // Get book details based on author
-public_users.get('/author/:author',function (req, res) {
-  const author = req.params.author;
-  for (let isbn in books) {
-    if (books[isbn]["author"] === author) {
-      return res.send(books[isbn]);
+public_users.get('/author/:author',async function (req, res) {
+  try{
+    const author = req.params.author;
+    let authorBooks = [];
+    for (let isbn in books) {
+      if (books[isbn]["author"] === author) {
+        authorBooks.push(books[isbn]);
+      }
     }
+    if (authorBooks.length > 0){
+      return res.status(200).json(authorBooks);
+    } else {
+      return res.status(404).json({message: "No books found for the author "+ author});
+    }
+  } catch (error){
+    return res.status(500).json({message: "Error retrieving books by author", error: error.message});
   }
 });
 
 // Get all books based on title
-public_users.get('/title/:title',function (req, res) {
-  const title = req.params.title;
-  for (let isbn in books) {
-    if (books[isbn]["title"] === title) {
-      return res.send(books[isbn]);
+public_users.get('/title/:title', async function (req, res) {
+  try {
+    const title = req.params.title;
+    const allBooks = await Promise.resolve(books);
+    for (let isbn in allBooks) {
+      if (allBooks[isbn]["title"] === title) {
+        return res.status(200).json(allBooks[isbn]);
+      }
     }
+    return res.status(404).json({message: "No book found with the title " + title});
+  } catch (error) {
+    return res.status(500).json({message: "Error retrieving book by title", error: error.message});
   }
-     return res.send("No book found with the title "+ title);
 });
 
 //  Get book review
