@@ -18,7 +18,6 @@ const authenticatedUser = (username,password)=>{
 	return userAuthenticated.length > 0 ? true : false;
 }
 
-//only registered users can login
 regd_users.post("/login", (req,res) => {
  	const  {username, password} = req.body
 
@@ -38,7 +37,6 @@ regd_users.post("/login", (req,res) => {
 	}
 });
 
-// Add a book review
 regd_users.put("/auth/review/:isbn", (req, res) => {
  	const  isbn  = req.params.isbn
 	const review = req.query.review

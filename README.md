@@ -9,8 +9,6 @@
 
 **Uma API RESTful moderna para gerenciamento de livros e revisões, construída com Express.js**
 
-[Funcionalidades](#-funcionalidades) • [Instalação](#-instalação) • [Uso](#-como-usar) • [Documentação da API](#-documentação-da-api)
-
 </div>
 
 ---
@@ -51,21 +49,16 @@ O **Express Book Reviews** é uma API REST completa que permite gerenciar um cat
 
 1. **Clone o repositório**
 ```bash
-git clone https://github.com/seu-usuario/expressBookReviews.git
+git clone https://github.com/Alcino-Luvualo/expressBookReviews
 cd expressBookReviews
 ```
 
-2. **Navegue até o diretório do projeto**
-```bash
-cd final_project
-```
-
-3. **Instale as dependências**
+2. **Instale as dependências**
 ```bash
 npm install
 ```
 
-4. **Inicie o servidor**
+3. **Inicie o servidor**
 ```bash
 npm start
 ```
@@ -322,14 +315,14 @@ Remove a revisão do usuário autenticado de um livro específico.
 ```
 expressBookReviews/
 │
-├── final_project/
-│   ├── index.js              # Arquivo principal do servidor
-│   ├── package.json          # Dependências do projeto
-│   │
-│   └── router/
-│       ├── auth_users.js     # Rotas de autenticação e revisões
-│       ├── booksdb.js        # Base de dados de livros
-│       └── general.js        # Rotas públicas
+├── index.js                  # Arquivo principal do servidor
+├── package.json              # Dependências do projeto
+├── package-lock.json         # Lock file das dependências
+│
+├── router/
+│   ├── auth_users.js         # Rotas de autenticação e revisões
+│   ├── booksdb.js            # Base de dados de livros
+│   └── general.js            # Rotas públicas
 │
 ├── LICENSE                   # Licença Apache 2.0
 └── README.md                 # Este arquivo
@@ -418,22 +411,7 @@ Este projeto está licenciado sob a Licença Apache 2.0 - veja o arquivo [LICENS
 
 ## 👨‍💻 Autor
 
-Desenvolvido com ❤️ para gerenciamento de revisões de livros.
-
----
-
-## 🎯 Roadmap
-
-Funcionalidades futuras planejadas:
-
-- [ ] Integração com banco de dados (MongoDB/PostgreSQL)
-- [ ] Sistema de avaliação por estrelas
-- [ ] Paginação nas listagens
-- [ ] Filtros avançados de busca
-- [ ] Upload de capas de livros
-- [ ] API de recomendações
-- [ ] Rate limiting
-- [ ] Documentação Swagger/OpenAPI
+Desenvolvido por Alcino
 
 ---
 
