@@ -1,147 +1,143 @@
-# 📚 Express Book Reviews API
-
-<div align="center">
+# Express Book Reviews API
 
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white)
 ![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=for-the-badge)
 
-**Uma API RESTful moderna para gerenciamento de livros e revisões, construída com Express.js**
-
-</div>
+**A modern RESTful API for managing books and reviews, built with Express.js**
 
 ---
 
-## 📋 Sobre o Projeto
+## About the Project
 
-O **Express Book Reviews** é uma API REST completa que permite gerenciar um catálogo de livros e suas revisões. Desenvolvida com Node.js e Express.js, oferece funcionalidades de autenticação segura usando JWT (JSON Web Tokens), permitindo que usuários registrados adicionem e gerenciem revisões de livros.
+**Express Book Reviews** is a complete REST API that allows you to manage a book catalog and its reviews. Built with Node.js and Express.js, it offers secure authentication using JWT (JSON Web Tokens), allowing registered users to add and manage book reviews.
 
-### ✨ Funcionalidades
+### Features
 
-- 🔐 **Autenticação de Usuários**: Sistema de registro e login com JWT
-- 📖 **Catálogo de Livros**: Listagem completa de livros disponíveis
-- 🔍 **Busca Avançada**: Pesquisa por ISBN, autor ou título
-- ⭐ **Sistema de Revisões**: Usuários autenticados podem adicionar e excluir revisões
-- 🔒 **Proteção de Rotas**: Middleware de autenticação para rotas protegidas
-- 📝 **Sessões**: Gerenciamento de sessões com express-session
-
----
-
-## 🛠️ Tecnologias Utilizadas
-
-- **Node.js** - Ambiente de execução JavaScript
-- **Express.js** - Framework web para Node.js
-- **JSON Web Token (JWT)** - Autenticação baseada em tokens
-- **express-session** - Gerenciamento de sessões
-- **nodemon** - Desenvolvimento com hot-reload
+- **User Authentication**: Registration and login system with JWT
+- **Book Catalog**: Full listing of available books
+- **Advanced Search**: Search by ISBN, author, or title
+- **Review System**: Authenticated users can add and delete reviews
+- **Route Protection**: Authentication middleware for protected routes
+- **Sessions**: Session management with express-session
 
 ---
 
-## 📦 Instalação
+## Technologies
 
-### Pré-requisitos
+- **Node.js** - JavaScript runtime environment
+- **Express.js** - Web framework for Node.js
+- **JSON Web Token (JWT)** - Token-based authentication
+- **express-session** - Session management
+- **nodemon** - Hot-reload for development
 
-- Node.js (versão 14 ou superior)
-- npm ou yarn
+---
 
-### Passos para Instalação
+## Installation
 
-1. **Clone o repositório**
+### Prerequisites
+
+- Node.js (version 14 or higher)
+- npm or yarn
+
+### Steps
+
+1. **Clone the repository**
 ```bash
 git clone https://github.com/Alcino-Luvualo/expressBookReviews
 cd expressBookReviews
 ```
 
-2. **Instale as dependências**
+2. **Install dependencies**
 ```bash
 npm install
 ```
 
-3. **Inicie o servidor**
+3. **Start the server**
 ```bash
 npm start
 ```
 
-O servidor estará rodando em `http://localhost:5000`
+The server will be running at `http://localhost:5000`
 
 ---
 
-## 🚀 Como Usar
+## Usage
 
-### 1. Registrar um Novo Usuário
+### 1. Register a New User
 
 ```bash
 POST http://localhost:5000/register
 Content-Type: application/json
 
 {
-  "username": "usuario123",
-  "password": "senha123"
+  "username": "user123",
+  "password": "pass123"
 }
 ```
 
-**Resposta de sucesso:**
+**Success response:**
 ```json
 {
   "message": "User successfully registered. Now you can login"
 }
 ```
 
-### 2. Fazer Login
+### 2. Login
 
 ```bash
 POST http://localhost:5000/customer/login
 Content-Type: application/json
 
 {
-  "username": "usuario123",
-  "password": "senha123"
+  "username": "user123",
+  "password": "pass123"
 }
 ```
 
-**Resposta de sucesso:**
+**Success response:**
 ```
-Welcome back usuario123
+Welcome back user123
 ```
 
-### 3. Listar Todos os Livros
+### 3. List All Books
 
 ```bash
 GET http://localhost:5000/
 ```
 
-### 4. Buscar Livro por ISBN
+### 4. Get Book by ISBN
 
 ```bash
 GET http://localhost:5000/isbn/1
 ```
 
-### 5. Buscar Livros por Autor
+### 5. Get Books by Author
 
 ```bash
 GET http://localhost:5000/author/Chinua%20Achebe
 ```
 
-### 6. Buscar Livro por Título
+### 6. Get Book by Title
 
 ```bash
 GET http://localhost:5000/title/Things%20Fall%20Apart
 ```
 
-### 7. Ver Revisões de um Livro
+### 7. Get Book Reviews
 
 ```bash
 GET http://localhost:5000/review/1
 ```
 
-### 8. Adicionar Revisão (Autenticado)
+### 8. Add Review (Authenticated)
 
 ```bash
-PUT http://localhost:5000/customer/auth/review/1?review=Excelente livro!
+PUT http://localhost:5000/customer/auth/review/1?review=Excellent book!
 ```
 
-### 9. Deletar Revisão (Autenticado)
+### 9. Delete Review (Authenticated)
 
 ```bash
 DELETE http://localhost:5000/customer/auth/review/1
@@ -149,12 +145,12 @@ DELETE http://localhost:5000/customer/auth/review/1
 
 ---
 
-## 📖 Documentação da API
+## API Documentation
 
-### Endpoints Públicos
+### Public Endpoints
 
 #### `POST /register`
-Registra um novo usuário no sistema.
+Registers a new user in the system.
 
 **Body:**
 ```json
@@ -164,36 +160,35 @@ Registra um novo usuário no sistema.
 }
 ```
 
-**Respostas:**
-- `200` - Usuário registrado com sucesso
-- `404` - Usuário já existe ou dados inválidos
+**Responses:**
+- `200` - User registered successfully
+- `404` - User already exists or invalid data
 
 ---
 
 #### `GET /`
-Retorna a lista completa de todos os livros disponíveis.
+Returns the complete list of all available books.
 
-**Resposta:**
+**Response:**
 ```json
 {
   "1": {
     "author": "Chinua Achebe",
     "title": "Things Fall Apart",
     "reviews": {}
-  },
-  ...
+  }
 }
 ```
 
 ---
 
 #### `GET /isbn/:isbn`
-Retorna os detalhes de um livro específico pelo ISBN.
+Returns the details of a specific book by ISBN.
 
-**Parâmetros:**
-- `isbn` (path) - ISBN do livro
+**Parameters:**
+- `isbn` (path) - Book ISBN
 
-**Resposta:**
+**Response:**
 ```json
 {
   "author": "Chinua Achebe",
@@ -205,12 +200,12 @@ Retorna os detalhes de um livro específico pelo ISBN.
 ---
 
 #### `GET /author/:author`
-Retorna todos os livros de um autor específico.
+Returns all books by a specific author.
 
-**Parâmetros:**
-- `author` (path) - Nome do autor
+**Parameters:**
+- `author` (path) - Author name
 
-**Resposta:**
+**Response:**
 ```json
 [
   {
@@ -224,12 +219,12 @@ Retorna todos os livros de um autor específico.
 ---
 
 #### `GET /title/:title`
-Retorna um livro específico pelo título.
+Returns a specific book by title.
 
-**Parâmetros:**
-- `title` (path) - Título do livro
+**Parameters:**
+- `title` (path) - Book title
 
-**Resposta:**
+**Response:**
 ```json
 {
   "author": "Chinua Achebe",
@@ -241,27 +236,27 @@ Retorna um livro específico pelo título.
 ---
 
 #### `GET /review/:isbn`
-Retorna todas as revisões de um livro específico.
+Returns all reviews for a specific book.
 
-**Parâmetros:**
-- `isbn` (path) - ISBN do livro
+**Parameters:**
+- `isbn` (path) - Book ISBN
 
-**Resposta:**
+**Response:**
 ```json
 {
-  "usuario123": "Excelente livro!",
-  "outroUsuario": "Muito bom!"
+  "user123": "Excellent book!",
+  "anotherUser": "Very good!"
 }
 ```
 
 ---
 
-### Endpoints Autenticados
+### Authenticated Endpoints
 
-> ⚠️ **Nota:** Todos os endpoints abaixo requerem autenticação. Faça login primeiro para obter o token de acesso.
+> **Note:** All endpoints below require authentication. Login first to obtain the access token.
 
 #### `POST /customer/login`
-Autentica um usuário e cria uma sessão.
+Authenticates a user and creates a session.
 
 **Body:**
 ```json
@@ -271,154 +266,148 @@ Autentica um usuário e cria uma sessão.
 }
 ```
 
-**Respostas:**
-- `200` - Login bem-sucedido
-- `401` - Credenciais inválidas
+**Responses:**
+- `200` - Login successful
+- `401` - Invalid credentials
 
 ---
 
 #### `PUT /customer/auth/review/:isbn`
-Adiciona ou atualiza uma revisão para um livro específico.
+Adds or updates a review for a specific book.
 
-**Parâmetros:**
-- `isbn` (path) - ISBN do livro
-- `review` (query) - Texto da revisão
+**Parameters:**
+- `isbn` (path) - Book ISBN
+- `review` (query) - Review text
 
-**Respostas:**
-- `200` - Revisão adicionada com sucesso
-- `400` - Revisão não fornecida
-- `401` - Usuário não autenticado
-- `404` - Livro não encontrado
+**Responses:**
+- `200` - Review added successfully
+- `400` - Review not provided
+- `401` - User not authenticated
+- `404` - Book not found
 
-**Exemplo:**
+**Example:**
 ```
-PUT /customer/auth/review/1?review=Adorei este livro!
+PUT /customer/auth/review/1?review=Loved this book!
 ```
 
 ---
 
 #### `DELETE /customer/auth/review/:isbn`
-Remove a revisão do usuário autenticado de um livro específico.
+Removes the authenticated user's review from a specific book.
 
-**Parâmetros:**
-- `isbn` (path) - ISBN do livro
+**Parameters:**
+- `isbn` (path) - Book ISBN
 
-**Respostas:**
-- `200` - Revisão deletada com sucesso
-- `401` - Usuário não autenticado
-- `404` - Revisão não encontrada
+**Responses:**
+- `200` - Review deleted successfully
+- `401` - User not authenticated
+- `404` - Review not found
 
 ---
 
-## 📁 Estrutura do Projeto
+## Project Structure
 
 ```
 expressBookReviews/
 │
-├── index.js                  # Arquivo principal do servidor
-├── package.json              # Dependências do projeto
-├── package-lock.json         # Lock file das dependências
+├── index.js                  # Main server file
+├── package.json              # Project dependencies
+├── package-lock.json         # Dependency lock file
 │
 ├── router/
-│   ├── auth_users.js         # Rotas de autenticação e revisões
-│   ├── booksdb.js            # Base de dados de livros
-│   └── general.js            # Rotas públicas
+│   ├── auth_users.js         # Authentication and review routes
+│   ├── booksdb.js            # Book database
+│   └── general.js            # Public routes
 │
-├── LICENSE                   # Licença Apache 2.0
-└── README.md                 # Este arquivo
+├── LICENSE                   # Apache 2.0 License
+└── README.md                 # This file
 ```
 
 ---
 
-## 🔐 Autenticação
+## Authentication
 
-O sistema utiliza **JWT (JSON Web Tokens)** para autenticação. Após fazer login, um token de acesso é armazenado na sessão do usuário e é válido por 60 segundos.
+The system uses **JWT (JSON Web Tokens)** for authentication. After logging in, an access token is stored in the user's session and is valid for 60 seconds.
 
-**Fluxo de Autenticação:**
-1. Usuário faz login em `/customer/login`
-2. Um token JWT é gerado e armazenado na sessão
-3. O token é automaticamente verificado em rotas protegidas (`/customer/auth/*`)
-4. Se o token for inválido ou expirado, o acesso é negado
+**Authentication Flow:**
+1. User logs in at `/customer/login`
+2. A JWT token is generated and stored in the session
+3. The token is automatically verified on protected routes (`/customer/auth/*`)
+4. If the token is invalid or expired, access is denied
 
 ---
 
-## 📝 Exemplos de Uso com cURL
+## cURL Examples
 
-### Registrar Usuário
+### Register User
 ```bash
 curl -X POST http://localhost:5000/register \
   -H "Content-Type: application/json" \
-  -d '{"username":"novoUsuario","password":"senha123"}'
+  -d '{"username":"newUser","password":"pass123"}'
 ```
 
-### Fazer Login
+### Login
 ```bash
 curl -X POST http://localhost:5000/customer/login \
   -H "Content-Type: application/json" \
-  -d '{"username":"novoUsuario","password":"senha123"}' \
+  -d '{"username":"newUser","password":"pass123"}' \
   -c cookies.txt
 ```
 
-### Adicionar Revisão (com cookies de sessão)
+### Add Review (with session cookies)
 ```bash
-curl -X PUT "http://localhost:5000/customer/auth/review/1?review=Ótimo livro!" \
+curl -X PUT "http://localhost:5000/customer/auth/review/1?review=Great book!" \
   -b cookies.txt
 ```
 
 ---
 
-## 🧪 Testando a API
+## Testing the API
 
-Você pode testar a API usando:
+You can test the API using:
 
-- **cURL** - Linha de comando
-- **Postman** - Interface gráfica
-- **Thunder Client** - Extensão do VS Code
-- **Insomnia** - Cliente REST
-- **httpie** - Cliente HTTP moderno
-
----
-
-## ⚙️ Configuração
-
-### Variáveis de Ambiente
-
-Para produção, considere mover as seguintes configurações para variáveis de ambiente:
-
-- `PORT` - Porta do servidor (padrão: 5000)
-- `JWT_SECRET` - Chave secreta para JWT (atualmente: "access")
-- `SESSION_SECRET` - Chave secreta para sessões (atualmente: "fingerprint_customer")
+- **cURL** - Command line
+- **Postman** - GUI client
+- **Thunder Client** - VS Code extension
+- **Insomnia** - REST client
+- **httpie** - Modern HTTP client
 
 ---
 
-## 🤝 Contribuindo
+## Configuration
 
-Contribuições são bem-vindas! Sinta-se à vontade para:
+### Environment Variables
 
-1. Fazer um Fork do projeto
-2. Criar uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abrir um Pull Request
+For production, consider moving the following to environment variables:
 
----
-
-## 📄 Licença
-
-Este projeto está licenciado sob a Licença Apache 2.0 - veja o arquivo [LICENSE](LICENSE) para detalhes.
+- `PORT` - Server port (default: 5000)
+- `JWT_SECRET` - JWT secret key (currently: "access")
+- `SESSION_SECRET` - Session secret key (currently: "fingerprint_customer")
 
 ---
 
-## 👨‍💻 Autor
+## Contributing
 
-Desenvolvido por Alcino
+Contributions are welcome! Feel free to:
+
+1. Fork the project
+2. Create a branch for your feature (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ---
 
-<div align="center">
+## License
 
-**⭐ Se este projeto foi útil para você, considere dar uma estrela! ⭐**
+This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details.
 
-Feito com Express.js e muito ☕
+---
 
-</div>
+## Author
+
+Developed by Alcino
+
+---
+
+Made with Express.js
